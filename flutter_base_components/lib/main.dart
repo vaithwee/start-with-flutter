@@ -4,12 +4,17 @@ import 'package:flutter_base_components/base_widget_intro/CounterWidget.dart';
 import 'package:flutter_base_components/base_widget_intro/Echo.dart';
 import 'package:flutter_base_components/base_widget_intro/SnackBarRoute.dart';
 import 'package:flutter_base_components/button/ButtonRoute.dart';
+import 'package:flutter_base_components/image/ImageRoute.dart';
 import 'package:flutter_base_components/state_manage/TapboxA.dart';
 import 'package:flutter_base_components/state_manage/TapboxB.dart';
 import 'package:flutter_base_components/state_manage/TapboxC.dart';
 import 'package:flutter_base_components/text_and_style/TextRoute.dart';
+import 'package:flutter_base_components/textfield_form/FormTestRoute.dart';
+import 'package:flutter_base_components/textfield_form/FouceNodeRoute.dart';
+import 'package:flutter_base_components/textfield_form/TextFieldAndFormRoute.dart';
 
 import 'base_widget_intro/CupertinoTestRoute.dart';
+import 'check_box/CheckBoxRoute.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,6 +47,11 @@ class MyApp extends StatelessWidget {
           "tapboxC" : (context) => ParentWidgetC(),
           "text" : (context) => TextRoute(),
           "button" : (context) => ButtonRoute(),
+          "image" : (context) => ImageRoute(),
+          "checkBox" : (context) => CheckBoxRoute(),
+          "textfield" : (context) => TextFieldAndFormRoute(),
+          "fouceNode" : (context) => FouceNodeRoute(),
+          "form" : (context) => FormTestRoute(),
         });
   }
 }
@@ -173,9 +183,39 @@ class _MyHomePageState extends State<MyHomePage> {
                 RaisedButton(onPressed: () {
                   Navigator.pushNamed(context, "button");
                 },
-                child: Text("Button"),)
+                child: Text("Button"),),
+                RaisedButton(onPressed: (){
+                  Navigator.pushNamed(context, "image");
+                },child: Text("Image"),),
+                RaisedButton(onPressed: () {
+                  Navigator.pushNamed(context, "checkBox");
+                },
+                child: Text(("CheckBox")),),
+
               ],
             ),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "textfield");
+                  },
+                  child: Text("Text Field And Form"),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "fouceNode");
+                  },
+                  child: Text("Fouce Node"),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context ,"form");
+                  },
+                  child: Text("Form"),
+                )
+              ],
+            )
           ],
         ),
       ),
