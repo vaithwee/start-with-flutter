@@ -6,6 +6,7 @@ import 'package:flutter_base_components/base_widget_intro/SnackBarRoute.dart';
 import 'package:flutter_base_components/state_manage/TapboxA.dart';
 import 'package:flutter_base_components/state_manage/TapboxB.dart';
 import 'package:flutter_base_components/state_manage/TapboxC.dart';
+import 'package:flutter_base_components/text_and_style/TextRoute.dart';
 
 import 'base_widget_intro/CupertinoTestRoute.dart';
 
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
           "tapboxA" : (context) => TapboxA(),
           "tapboxB" : (context) => ParentWidget(),
           "tapboxC" : (context) => ParentWidgetC(),
+          "text" : (context) => TextRoute(),
         });
   }
 }
@@ -154,6 +156,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.pushNamed(context, "tapboxC");
                   },
                   child: Text("TapBoxC"),
+                )
+              ],
+            ),
+            Text("text and style"),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "text");
+                  },
+                  child: Text("Text"),
                 )
               ],
             ),
