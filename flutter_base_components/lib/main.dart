@@ -3,6 +3,9 @@ import 'package:flutter_base_components/base_widget_intro/ContextRoute.dart';
 import 'package:flutter_base_components/base_widget_intro/CounterWidget.dart';
 import 'package:flutter_base_components/base_widget_intro/Echo.dart';
 import 'package:flutter_base_components/base_widget_intro/SnackBarRoute.dart';
+import 'package:flutter_base_components/state_manage/TapboxA.dart';
+import 'package:flutter_base_components/state_manage/TapboxB.dart';
+import 'package:flutter_base_components/state_manage/TapboxC.dart';
 
 import 'base_widget_intro/CupertinoTestRoute.dart';
 
@@ -32,6 +35,9 @@ class MyApp extends StatelessWidget {
           "counter": (context) => CounterWidget(),
           "snack": (context) => SnackRoute(),
           "cupertino": (context) => CupertinoTestRoute(),
+          "tapboxA" : (context) => TapboxA(),
+          "tapboxB" : (context) => ParentWidget(),
+          "tapboxC" : (context) => ParentWidgetC(),
         });
   }
 }
@@ -55,18 +61,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -102,46 +98,68 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
+            Text("base"),
+            Row(
+              children: <Widget>[
+                Echo(text: "hello world"),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.display1,
+            Text("widget"),
+            Row(
+              children: <Widget>[
+
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "cxt");
+                  },
+                  child: Text("Context"),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "counter");
+                  },
+                  child: Text("Counter"),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "snack");
+                  },
+                  child: Text("Snack Bar"),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "cupertino");
+                  },
+                  child: Text("Cupertino"),
+                ),
+              ],
             ),
-            Echo(text: "hello world"),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "cxt");
-              },
-              child: Text("Context"),
+            Text("state"),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "tapboxA");
+                  },
+                  child: Text("TapBoxA"),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "tapboxB");
+                  },
+                  child: Text("TapBoxB"),
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "tapboxC");
+                  },
+                  child: Text("TapBoxC"),
+                )
+              ],
             ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "counter");
-              },
-              child: Text("Counter"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "snack");
-              },
-              child: Text("Snack Bar"),
-            ),
-            RaisedButton(
-              onPressed: () {
-                Navigator.pushNamed(context, "cupertino");
-              },
-              child: Text("Cupertino"),
-            )
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
