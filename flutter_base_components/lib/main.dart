@@ -3,6 +3,7 @@ import 'package:flutter_base_components/base_widget_intro/ContextRoute.dart';
 import 'package:flutter_base_components/base_widget_intro/CounterWidget.dart';
 import 'package:flutter_base_components/base_widget_intro/Echo.dart';
 import 'package:flutter_base_components/base_widget_intro/SnackBarRoute.dart';
+import 'package:flutter_base_components/button/ButtonRoute.dart';
 import 'package:flutter_base_components/state_manage/TapboxA.dart';
 import 'package:flutter_base_components/state_manage/TapboxB.dart';
 import 'package:flutter_base_components/state_manage/TapboxC.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
           "tapboxB" : (context) => ParentWidget(),
           "tapboxC" : (context) => ParentWidgetC(),
           "text" : (context) => TextRoute(),
+          "button" : (context) => ButtonRoute(),
         });
   }
 }
@@ -167,7 +169,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     Navigator.pushNamed(context, "text");
                   },
                   child: Text("Text"),
-                )
+                ),
+                RaisedButton(onPressed: () {
+                  Navigator.pushNamed(context, "button");
+                },
+                child: Text("Button"),)
               ],
             ),
           ],
