@@ -5,6 +5,7 @@ import 'package:flutter_base_components/base_widget_intro/Echo.dart';
 import 'package:flutter_base_components/base_widget_intro/SnackBarRoute.dart';
 import 'package:flutter_base_components/button/ButtonRoute.dart';
 import 'package:flutter_base_components/image/ImageRoute.dart';
+import 'package:flutter_base_components/progress_indicator/ProgressIndicatorRoute.dart';
 import 'package:flutter_base_components/state_manage/TapboxA.dart';
 import 'package:flutter_base_components/state_manage/TapboxB.dart';
 import 'package:flutter_base_components/state_manage/TapboxC.dart';
@@ -52,6 +53,7 @@ class MyApp extends StatelessWidget {
           "textfield" : (context) => TextFieldAndFormRoute(),
           "fouceNode" : (context) => FouceNodeRoute(),
           "form" : (context) => FormTestRoute(),
+          "progress" : (context) => ProgressIndicatorRoute(),
         });
   }
 }
@@ -214,6 +216,16 @@ class _MyHomePageState extends State<MyHomePage> {
                   },
                   child: Text("Form"),
                 )
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushNamed(context, "progress");
+                  },
+                  child: Text("Progress"),
+                ),
               ],
             )
           ],
