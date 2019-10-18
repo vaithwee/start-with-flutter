@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_scroll_components/InfiniteListViewTestRoute.dart';
+import 'package:flutter_scroll_components/InfinitedGridViewTestRoute.dart';
 import 'package:flutter_scroll_components/ListViewTestRoute.dart';
 import 'package:flutter_scroll_components/ScrollViewTestRoute.dart';
+
+import 'CustomScrollViewTestRoute.dart';
+import 'ScrollControllerTestRoute.dart';
+import 'ScrollNotificationTestRoute.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,6 +32,11 @@ class MyApp extends StatelessWidget {
             routes: {
                 "singleScroll" : (context) => ScrollViewTestRoute(),
                 "listView" : (context) => ListViewTestRoute(),
+                "infinitedList" : (context) => InfiniteListViewTestRoute(),
+                "infonitedGrid" : (context) => InfinitedGridViewTestRoute(),
+                "customeScroll" : (context) => CustomScrollViewTestRoute(),
+                "scrollController" : (context) => ScrollControllerTestRoute(),
+                "scrollNoti" : (context) => ScrollNotificationTestRoute(),
             },
         );
     }
@@ -93,6 +104,36 @@ class _MyHomePageState extends State<MyHomePage> {
                             Navigator.pushNamed(context, "listView");
                         },
                     ),
+                    RaisedButton(
+                        child: Text("Infinited List View"),
+                        onPressed: () {
+                            Navigator.pushNamed(context, "infinitedList");
+                        },
+                    ),
+                    RaisedButton(
+                        child: Text("Infinited Grid View"),
+                        onPressed: () {
+                            Navigator.pushNamed(context, "infonitedGrid");
+                        },
+                    ),
+                    RaisedButton(
+                        child: Text("Custome Scroll View"),
+                        onPressed: () {
+                            Navigator.pushNamed(context, "customeScroll");
+                        },
+                    ),
+                    RaisedButton(
+                        child: Text("scroll controller"),
+                        onPressed: () {
+                            Navigator.pushNamed(context, "scrollController");
+                        },
+                    ),
+                    RaisedButton(
+                        child: Text("scroll notificaton"),
+                        onPressed: () {
+                            Navigator.pushNamed(context, "scrollNoti");
+                        },
+                    )
                 ],
             ),
             floatingActionButton: FloatingActionButton(
