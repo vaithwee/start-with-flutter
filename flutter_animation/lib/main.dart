@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animation/route/HeroAnimationRoute.dart';
 import 'package:flutter_animation/route/ScaleAnimationRoute.dart';
 import 'package:flutter_animation/route/ScaleAnimationRoute1.dart';
+import 'package:flutter_animation/route/StaggerAnimationRoute.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
         "scale" : (context) => ScaleAnimationRoute(),
         "scale1" : (context) => ScaleAnimationRoute1(),
         "hero" : (context) =>HeroAnimationRoute(),
+        "stagger" : (context) => StaggerAnimation(),
       },
     );
   }
@@ -121,7 +123,13 @@ class _MyHomePageState extends State<MyHomePage> {
                 Navigator.pushNamed(context, "hero");
               },
               child: Text("Hero"),
-            )
+            ),
+            RaisedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, "stagger");
+              },
+              child: Text("Stagger"),
+            ),
           ],
         ),
       ),
